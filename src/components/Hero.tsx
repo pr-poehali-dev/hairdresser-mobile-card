@@ -12,77 +12,93 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="pt-20 pb-16 bg-gradient-to-br from-purple-50 to-pink-50 min-h-screen flex items-center"
+      className="pt-20 pb-8 bg-gradient-to-br from-rose-50 to-pink-100 min-h-screen flex items-center"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Создаём
-                <span className="text-purple-600 block">идеальный образ</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-lg">
-                Профессиональный стилист с 8-летним опытом. Современные техники
-                окрашивания и стрижки для вашего неповторимого стиля.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                onClick={scrollToBooking}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg"
-              >
-                Записаться онлайн
-                <Icon name="Calendar" size={20} className="ml-2" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-3 text-lg"
-              >
-                <Icon name="Phone" size={20} className="mr-2" />
-                +7 (999) 123-45-67
-              </Button>
-            </div>
-
-            <div className="flex items-center space-x-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">500+</div>
-                <div className="text-sm text-gray-600">Довольных клиентов</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">8</div>
-                <div className="text-sm text-gray-600">Лет опыта</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">4.9</div>
-                <div className="text-sm text-gray-600">Рейтинг</div>
-              </div>
+      <div className="container mx-auto px-4">
+        <div className="max-w-sm mx-auto text-center space-y-6">
+          {/* Profile Photo */}
+          <div className="relative mx-auto w-32 h-32 mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=300&q=80"
+              alt="Анна Смирнова - Парикмахер"
+              className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+            />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+              <Icon name="Check" size={16} className="text-white" />
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80"
-                alt="Профессиональный стилист за работой"
-                className="w-full h-[600px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
+          {/* Name & Title */}
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold text-gray-900">Анна Смирнова</h1>
+            <p className="text-lg text-rose-600 font-medium">
+              Парикмахер-стилист
+            </p>
+            <p className="text-sm text-gray-600">
+              8 лет опыта • 500+ клиентов • Рейтинг 4.9
+            </p>
+          </div>
+
+          {/* Quick Actions */}
+          <div className="grid grid-cols-2 gap-3">
+            <Button
+              size="lg"
+              onClick={scrollToBooking}
+              className="bg-rose-500 hover:bg-rose-600 text-white py-3 rounded-xl"
+            >
+              <Icon name="Calendar" size={18} className="mr-2" />
+              Записаться
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-rose-500 text-rose-600 hover:bg-rose-50 py-3 rounded-xl"
+            >
+              <Icon name="Phone" size={18} className="mr-2" />
+              Позвонить
+            </Button>
+          </div>
+
+          {/* Contact Info Cards */}
+          <div className="space-y-3 pt-4">
+            <div className="bg-white rounded-xl p-4 shadow-sm flex items-center space-x-3">
+              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center">
+                <Icon name="Phone" size={20} className="text-rose-600" />
+              </div>
+              <div className="flex-1 text-left">
+                <div className="font-medium text-gray-900">
+                  +7 (999) 123-45-67
+                </div>
+                <div className="text-sm text-gray-500">
+                  Звонить с 9:00 до 21:00
+                </div>
+              </div>
             </div>
 
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                  <Icon name="Scissors" size={24} className="text-purple-600" />
+            <div className="bg-white rounded-xl p-4 shadow-sm flex items-center space-x-3">
+              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center">
+                <Icon name="MapPin" size={20} className="text-rose-600" />
+              </div>
+              <div className="flex-1 text-left">
+                <div className="font-medium text-gray-900">
+                  ул. Красивая, 15
                 </div>
-                <div>
-                  <div className="font-semibold text-gray-900">
-                    Анна Смирнова
-                  </div>
-                  <div className="text-sm text-gray-600">Мастер-стилист</div>
+                <div className="text-sm text-gray-500">
+                  Санкт-Петербург, м. Невский
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-4 shadow-sm flex items-center space-x-3">
+              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center">
+                <Icon name="Instagram" size={20} className="text-rose-600" />
+              </div>
+              <div className="flex-1 text-left">
+                <div className="font-medium text-gray-900">
+                  @anna_stylist_spb
+                </div>
+                <div className="text-sm text-gray-500">
+                  Мои работы в Instagram
                 </div>
               </div>
             </div>

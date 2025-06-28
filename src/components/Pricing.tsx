@@ -48,85 +48,57 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Прайс-лист услуг
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Прозрачные цены на все услуги. Консультация всегда бесплатна.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="hover:shadow-lg transition-shadow duration-300"
-            >
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon
-                    name={service.icon as any}
-                    size={32}
-                    className="text-purple-600"
-                  />
-                </div>
-                <CardTitle className="text-2xl font-bold text-gray-900">
-                  {service.category}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {service.items.map((item, itemIndex) => (
-                  <div
-                    key={itemIndex}
-                    className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0"
-                  >
-                    <div>
-                      <div className="font-medium text-gray-900">
-                        {item.name}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {item.duration}
-                      </div>
-                    </div>
-                    <div className="font-bold text-purple-600 text-lg">
-                      {item.price} ₽
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <div className="bg-purple-50 rounded-2xl p-8 mb-8 max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="flex items-center justify-center space-x-3">
-                <Icon name="Clock" size={24} className="text-purple-600" />
-                <span className="text-gray-700">Работаем 9:00-21:00</span>
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <Icon name="CreditCard" size={24} className="text-purple-600" />
-                <span className="text-gray-700">Наличные и карты</span>
-              </div>
-              <div className="flex items-center justify-center space-x-3">
-                <Icon name="Gift" size={24} className="text-purple-600" />
-                <span className="text-gray-700">Система скидок</span>
-              </div>
-            </div>
+    <section id="pricing" className="py-8 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-sm mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-2">Мои услуги</h2>
+            <p className="text-sm text-gray-600">
+              Прозрачные цены, качественный результат
+            </p>
           </div>
 
-          <Button
-            size="lg"
-            onClick={scrollToBooking}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg"
-          >
-            Записаться на услугу
-            <Icon name="ArrowRight" size={20} className="ml-2" />
-          </Button>
+          <div className="space-y-3">
+            {services.map((service, index) => (
+              <div key={index} className="bg-gray-50 rounded-xl p-4">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="w-8 h-8 bg-rose-100 rounded-full flex items-center justify-center">
+                    <Icon
+                      name={service.icon as any}
+                      size={16}
+                      className="text-rose-600"
+                    />
+                  </div>
+                  <h3 className="font-semibold text-gray-900">
+                    {service.category}
+                  </h3>
+                </div>
+                <div className="space-y-2">
+                  {service.items.slice(0, 3).map((item, itemIndex) => (
+                    <div
+                      key={itemIndex}
+                      className="flex justify-between items-center text-sm"
+                    >
+                      <span className="text-gray-700">{item.name}</span>
+                      <span className="font-medium text-rose-600">
+                        {item.price} ₽
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-6">
+            <Button
+              size="sm"
+              onClick={scrollToBooking}
+              className="bg-rose-500 hover:bg-rose-600 text-white px-6 py-2 rounded-xl"
+            >
+              Выбрать услугу
+            </Button>
+          </div>
         </div>
       </div>
     </section>

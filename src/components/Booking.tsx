@@ -59,245 +59,82 @@ const Booking = () => {
   };
 
   return (
-    <section id="booking" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Запись онлайн
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Забронируйте удобное время прямо сейчас. Мы свяжемся с вами для
-            подтверждения записи.
-          </p>
-        </div>
+    <section id="booking" className="py-8 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-sm mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-2">Записаться</h2>
+            <p className="text-sm text-gray-600">
+              Выберите удобный способ связи
+            </p>
+          </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <Card className="p-6">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl font-bold text-gray-900">
-                    Контактная информация
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Icon
-                        name="Phone"
-                        size={24}
-                        className="text-purple-600"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">Телефон</div>
-                      <div className="text-gray-600">+7 (999) 123-45-67</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Icon
-                        name="MapPin"
-                        size={24}
-                        className="text-purple-600"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">Адрес</div>
-                      <div className="text-gray-600">
-                        ул. Красивая, 15, Санкт-Петербург
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Icon
-                        name="Clock"
-                        size={24}
-                        className="text-purple-600"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">
-                        Режим работы
-                      </div>
-                      <div className="text-gray-600">Пн-Вс: 9:00 - 21:00</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Icon
-                        name="Instagram"
-                        size={24}
-                        className="text-purple-600"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900">
-                        Instagram
-                      </div>
-                      <div className="text-gray-600">@anna_stylist_spb</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="bg-purple-50 rounded-2xl p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Почему выбирают нас?
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Icon name="Check" size={20} className="text-purple-600" />
-                    <span className="text-gray-700">
-                      8 лет профессионального опыта
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Icon name="Check" size={20} className="text-purple-600" />
-                    <span className="text-gray-700">
-                      Индивидуальный подход к каждому клиенту
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Icon name="Check" size={20} className="text-purple-600" />
-                    <span className="text-gray-700">
-                      Современные техники и материалы
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Icon name="Check" size={20} className="text-purple-600" />
-                    <span className="text-gray-700">
-                      Гарантия качества на все услуги
-                    </span>
-                  </div>
-                </div>
+          {/* Contact Methods */}
+          <div className="space-y-3 mb-6">
+            <div className="bg-rose-50 rounded-xl p-4 border border-rose-200">
+              <div className="flex items-center space-x-3 mb-2">
+                <Icon name="Phone" size={20} className="text-rose-600" />
+                <span className="font-medium text-gray-900">Позвонить</span>
               </div>
+              <p className="text-sm text-gray-600 mb-3">
+                Быстрая запись по телефону
+              </p>
+              <Button
+                size="sm"
+                className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-lg"
+              >
+                +7 (999) 123-45-67
+              </Button>
             </div>
 
-            {/* Booking Form */}
-            <Card className="p-6">
-              <CardHeader className="pb-6">
-                <CardTitle className="text-2xl font-bold text-gray-900">
-                  Форма записи
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Ваше имя *</Label>
-                      <Input
-                        id="name"
-                        type="text"
-                        placeholder="Введите ваше имя"
-                        value={formData.name}
-                        onChange={(e) =>
-                          handleInputChange("name", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Телефон *</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+7 (999) 123-45-67"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          handleInputChange("phone", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-                  </div>
+            <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+              <div className="flex items-center space-x-3 mb-2">
+                <Icon
+                  name="MessageCircle"
+                  size={20}
+                  className="text-blue-600"
+                />
+                <span className="font-medium text-gray-900">WhatsApp</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-3">
+                Удобное общение в мессенджере
+              </p>
+              <Button
+                size="sm"
+                variant="outline"
+                className="w-full border-blue-500 text-blue-600 hover:bg-blue-50 rounded-lg"
+              >
+                Написать в WhatsApp
+              </Button>
+            </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Услуга *</Label>
-                    <Select
-                      value={formData.service}
-                      onValueChange={(value) =>
-                        handleInputChange("service", value)
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите услугу" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {services.map((service) => (
-                          <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+            <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+              <div className="flex items-center space-x-3 mb-2">
+                <Icon name="Instagram" size={20} className="text-purple-600" />
+                <span className="font-medium text-gray-900">Instagram</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-3">Запись через Direct</p>
+              <Button
+                size="sm"
+                variant="outline"
+                className="w-full border-purple-500 text-purple-600 hover:bg-purple-50 rounded-lg"
+              >
+                @anna_stylist_spb
+              </Button>
+            </div>
+          </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="date">Дата *</Label>
-                      <Input
-                        id="date"
-                        type="date"
-                        value={formData.date}
-                        onChange={(e) =>
-                          handleInputChange("date", e.target.value)
-                        }
-                        min={new Date().toISOString().split("T")[0]}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="time">Время *</Label>
-                      <Select
-                        value={formData.time}
-                        onValueChange={(value) =>
-                          handleInputChange("time", value)
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Выберите время" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {timeSlots.map((time) => (
-                            <SelectItem key={time} value={time}>
-                              {time}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="comment">Комментарий</Label>
-                    <Textarea
-                      id="comment"
-                      placeholder="Расскажите о ваших пожеланиях..."
-                      value={formData.comment}
-                      onChange={(e) =>
-                        handleInputChange("comment", e.target.value)
-                      }
-                      rows={4}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white text-lg py-3"
-                    size="lg"
-                  >
-                    Записаться
-                    <Icon name="Send" size={20} className="ml-2" />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+          {/* Working Hours */}
+          <div className="bg-gray-50 rounded-xl p-4 text-center">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <Icon name="Clock" size={18} className="text-gray-600" />
+              <span className="font-medium text-gray-900">Режим работы</span>
+            </div>
+            <p className="text-sm text-gray-600">
+              Понедельник - Воскресенье
+              <br />
+              9:00 - 21:00
+            </p>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/icon";
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -93,70 +94,50 @@ const Gallery = () => {
       : works.filter((work) => work.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Галерея работ
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Более 500 довольных клиентов доверили нам свой образ. Посмотрите на
-            результаты нашей работы.
-          </p>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className={`${
-                  activeCategory === category.id
-                    ? "bg-purple-600 hover:bg-purple-700 text-white"
-                    : "border-purple-600 text-purple-600 hover:bg-purple-50"
-                }`}
-              >
-                {category.name}
-              </Button>
-            ))}
+    <section id="gallery" className="py-8 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-sm mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-2">Мои работы</h2>
+            <p className="text-sm text-gray-600">
+              Результаты, которыми я горжусь
+            </p>
           </div>
-        </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredWorks.map((work) => (
-            <Card
-              key={work.id}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
-            >
-              <div className="relative overflow-hidden">
+          {/* Compact Gallery Grid */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {works.slice(0, 4).map((work) => (
+              <div
+                key={work.id}
+                className="relative aspect-square rounded-lg overflow-hidden"
+              >
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-semibold mb-1">{work.title}</h3>
-                    <p className="text-sm text-gray-200">{work.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent">
+                  <div className="absolute bottom-2 left-2 text-white">
+                    <p className="text-xs font-medium">{work.title}</p>
                   </div>
                 </div>
               </div>
-            </Card>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">
-            Хотите увидеть больше работ? Подписывайтесь на наш Instagram!
-          </p>
-          <Button
-            variant="outline"
-            className="border-purple-600 text-purple-600 hover:bg-purple-50"
-          >
-            @anna_stylist_spb
-          </Button>
+          <div className="text-center">
+            <p className="text-sm text-gray-600 mb-3">
+              Больше работ в Instagram
+            </p>
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-rose-500 text-rose-600 hover:bg-rose-50 px-6 py-2 rounded-xl"
+            >
+              <Icon name="Instagram" size={16} className="mr-2" />
+              @anna_stylist_spb
+            </Button>
+          </div>
         </div>
       </div>
     </section>
